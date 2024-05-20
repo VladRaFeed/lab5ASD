@@ -2,7 +2,7 @@
 
 namespace lab5asd
 {
-    class TreeNode
+    public class TreeNode
     {
         public int key;
         public TreeNode left;
@@ -24,18 +24,50 @@ namespace lab5asd
             right = null;
             parent = null;
         }
+
+        public void Insert(int  value)
+        {
+            if(value >= key)
+            {
+                if (right == null)
+                {
+                    right = new TreeNode(key);
+                }
+                else
+                {
+                    right.Insert(value);
+                }
+            } else
+            {
+                if(left == null)
+                {
+                    left = new TreeNode(key);
+                } else
+                {
+                    left.Insert(value);
+                }
+            }
+        }
+    }
+
+    public class BinaryTree
+    {
+        public TreeNode root;
+
+        public void Insert(int data)
+        {
+            if (root != null) 
+            {
+                root.Insert(data);
+            } else
+            {
+                root = new TreeNode(data);
+            }
+        }
     }
 
     class Program
     {
-        public void IndorderTreeWalk(int x)
-        {
-            if(x != null)
-            {
-
-            }
-        }
-
         static void Main(string[] args)
         {
             Console.WriteLine("Test");
