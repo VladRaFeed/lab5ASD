@@ -2,111 +2,40 @@
 
 namespace lab5asd
 {
-    public class TreeNode
-    {
-        public int key;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode parent;
-
-        public TreeNode()
-        {
-            key = 0;
-            left = null;
-            right = null;
-            parent = null;
-        }
-
-        public TreeNode(int key)
-        {
-            this.key = key;
-            left = null;
-            right = null;
-            parent = null;
-        }
-
-        public void Insert(int  value)
-        {
-            if(value >= key)
-            {
-                if (right == null)
-                {
-                    right = new TreeNode(key);
-                }
-                else
-                {
-                    right.Insert(value);
-                }
-            } else
-            {
-                if(left == null)
-                {
-                    left = new TreeNode(key);
-                } else
-                {
-                    left.Insert(value);
-                }
-            }
-        }
-
-        public void TreeWalk(TreeNode key)
-        {
-            if(key.left != null)
-            {
-                TreeWalk(key.left);
-            }
-
-            Console.WriteLine(key.key + " ");
-
-            if(key.right != null)
-            {
-                TreeWalk(key.right);
-            }
-        }
-    }
-
-    public class BinaryTree
-    {
-        public TreeNode root;
-
-        public void Insert(int data)
-        {
-            if (root != null) 
-            {
-                root.Insert(data);
-            } else
-            {
-                root = new TreeNode(data);
-            }
-        }
-
-        public void InorderTreeWalk()
-        {
-            if(root != null)
-            {
-                InorderTreeWalk(root);
-            }
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Binary Search Tree");
 
-            BinaryTree newTree = new BinaryTree();  
+            BinaryTree binaryTree = new BinaryTree();
 
-            newTree.Insert(5);
-            newTree.Insert(3);
-            newTree.Insert(10);
-            newTree.Insert(1);
-            newTree.Insert(15);
-            newTree.Insert(7);
-            newTree.Insert(2);
+            binaryTree.Insert(75);
+            binaryTree.Insert(57);
+            binaryTree.Insert(90);
+            binaryTree.Insert(32);
+            binaryTree.Insert(7);
+            binaryTree.Insert(44);
+            binaryTree.Insert(60);
+            binaryTree.Insert(86);
+            binaryTree.Insert(93);
+            binaryTree.Insert(99);
 
             Console.WriteLine("Tree Walk");
-            newTree.InorderTreeWalk();  
+            binaryTree.InorderTreeWalk();
+            Console.WriteLine("");
+            Console.WriteLine("Insert Tree Walk");
+            binaryTree.ReverseInorderTreeWalk();
+            Console.WriteLine();
+            Console.WriteLine("NonRecursiveTreeWalk");
+            binaryTree.NonRecursiveTreeWalk();
+            Console.WriteLine();
+            Console.WriteLine("Find Min element in tree");
+            binaryTree.TreeMin();
+            Console.WriteLine("Find Max element in tree");
+            binaryTree.TreeMax();
+            Console.WriteLine("Tree predecessor");
+            binaryTree.TreePredecessor();
         }
     }
 }
